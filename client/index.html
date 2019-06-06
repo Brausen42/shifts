@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Shift Manager</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- development-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- production
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>-->
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="app">
+      <h1 id="site-header">Shift Management</h1>
+      <!-- use the modal component, pass in the prop -->
+      <modal v-if="show_modal" @close="show_modal = false">
+        <shift-creator slot="body"></shift-creator>
+      </modal>
+      <shift-viewer></shift-viewer>
+      <button id="show-modal" @click="show_modal = true">Create New Shift</button>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

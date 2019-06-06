@@ -1,0 +1,139 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background: darkslategray;
+    color: darkslategray;
+    height: 95%;
+}
+
+button {
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+}
+
+table {
+    width: 100%;
+    overflow: auto;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+}
+
+td {
+    padding: 3px;
+}
+
+.create-shift {
+    background: whitesmoke;
+    margin: auto;
+    max-width: 500px;
+}
+
+.pane {
+    display: inline-block;
+    padding: 20px;
+    margin: 5px;
+    background-color: lightblue;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 0.5px blue inset;
+}
+
+.even-spacing {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.shift-viewer {
+    display: block;
+    margin: auto;
+    max-width: 1000px;
+    max-height: 75%;
+    overflow: auto;
+}
+
+#app {
+    height: 100%;
+}
+
+#site-header {
+    color: whitesmoke;
+}
+
+/* Modal styling */
+.modal-mask {
+    position: fixed;
+    z-index: 9998;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .5);
+    display: table;
+    transition: opacity .3s ease;
+  }
+  
+  .modal-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  .modal-container {
+    max-width: 700px;
+    margin: 0px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+    transition: all .3s ease;
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  
+  .modal-body {
+    margin: 20px 0;
+  }
+  
+  .modal-close-button {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-weight: bold;
+    color: red;
+  }
+
+  .modal-close-button:hover {
+    cursor: pointer;
+  }
+  
+  /*
+   * The following styles are auto-applied to elements with
+   * transition="modal" when their visibility is toggled
+   * by Vue.js.
+   *
+   * You can easily play with the modal transition by editing
+   * these styles.
+   */
+  
+  .modal-enter {
+    opacity: 0;
+  }
+  
+  .modal-leave-active {
+    opacity: 0;
+  }
+  
+  .modal-enter .modal-container,
+  .modal-leave-active .modal-container {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
