@@ -1,10 +1,3 @@
-// from https://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
-function uuidv4() {
-    return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
-      (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
-    )
-  }
-
 const API_PATH = "/api/v1";
 const OVERLAPPING_SHIFT = "Overlapping Shift";
 
@@ -81,7 +74,7 @@ function addShift(newShift) {
 }
 
 function isValidShift(shift) {
-    return shift.start_time && shift.end_time && (shift.start_time < shift.end_time);
+    return shift.id && shift.start_time && shift.end_time && (shift.start_time < shift.end_time);
 }
 
 module.exports = {
@@ -92,9 +85,7 @@ module.exports = {
 
         express_app.post(`${API_PATH}/shifts`, function(req, res) {
             try {
-                const newShift = req.body;
-                newShift.id = uuidv4();
-                addShift(newShift);
+                addShift(req.body);
             } catch (error) {
                 res.status(400).json({error: error.toString()})
                 return;

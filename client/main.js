@@ -15,6 +15,8 @@ const dates = {
   }
 }
 
+const host_url = `${window.location.protocol}//${window.location.host}`;
+
 Vue.component('modal', {
   template: `
     <transition name="modal">
@@ -74,11 +76,12 @@ Vue.component('shift-creator', {
   methods: {
     createShift: function() {
       $.ajax ({
-        url: "http://localhost:8080/api/v1/shifts",
+        url: `${host_url}/api/v1/shifts`,
         type: "POST",
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify({
+          id: uuidv4(),
           start_time: $("#start-date-selector").attr("value"),
           end_time: $("#end-date-selector").attr("value")
         }),
@@ -122,7 +125,7 @@ Vue.component('shift-viewer', {
     getShifts: function() {
       const self = this;
       $.ajax ({
-        url: "http://localhost:8080/api/v1/shifts",
+        url: `${host_url}/api/v1/shifts`,
         type: "GET",
         dataType: "json",
         contentType: "application/json; charset=utf-8",
@@ -134,7 +137,7 @@ Vue.component('shift-viewer', {
            }
         },
         error: function(e) {
-          alert(JSON.stringify(e.responseJSON.error));
+          console.log(`Failed to refresh the shifts - ${JSON.stringify(e)}`)
         }
       });
     }

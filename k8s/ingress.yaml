@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: shifts-ingress
+  annotations:  
+    kubernetes.io/ingress.class: nginx
+    certmanager.k8s.io/cluster-issuer: letsencrypt-shifts
+spec:
+  tls:
+  - hosts:
+    - shifts.alexbrausen.com
+    secretName: letsencrypt-shifts
+  rules:
+  - host: shifts.alexbrausen.com
+    http:
+      paths:
+      - backend:
+          serviceName: shifts
+          servicePort: 80

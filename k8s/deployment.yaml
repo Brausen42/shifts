@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shifts
+spec:
+  selector:
+    matchLabels:
+      app: shifts
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: shifts
+    spec:
+      containers:
+      - name: shifts
+        image: brausen42/shifts:v1.0.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
