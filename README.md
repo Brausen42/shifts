@@ -2,6 +2,10 @@
 
 This is a project that allows for the creation and subsequent viewing of generic shifts.
 
+## Deployment
+
+The Docker and k8s resources are used to deploy the website and api @ https://shifts.alexbrausen.com
+
 ## Website
 
 A website is exposed by the server that is a UI for observing all existing shifts, and creating new shifts.
@@ -44,3 +48,14 @@ example request body:
     end_time; {{ unix_epoch_time }}
 }
 ```
+
+## TODO
+
+There's a few things I would add with more time to devote to this project:
+
+* Use https://fullcalendar.io/ to display and create shifts more intuitively
+* Add checks to ensure the ids are unique
+* add a `GET /api/v1/shifts/:id` endpoint for getting a specific shift
+* Integration tests for the use of the api
+* Unit tests for the client and server
+* User logins with authentication and role-based permissions
