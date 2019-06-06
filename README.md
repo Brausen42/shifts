@@ -56,6 +56,7 @@ There's a few things I would add with more time to devote to this project:
 * Use https://fullcalendar.io/ to display and create shifts more intuitively
 * Add checks to ensure the ids are unique
 * add a `GET /api/v1/shifts/:id` endpoint for getting a specific shift
+* Back the data with an actual database so the data persists between upgrades to the server (and everything doesn't have to be stored in memory)
 * Integration tests for the use of the api
 * Unit tests for the client and server
 * User logins with authentication and role-based permissions
